@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+<body>
+    <h1>Rust WASM demo</h1>
+    <pre id="out">Did not load</pre>
+
+    <script type="module">
+        import init, { add, greet } from "./pkg/wasm_demo.js";
+
+        const out = document.getElementById("out");
+
+        // Loads the .wasm file and initializes bindings
+        await init();
+
+        out.textContent =
+            `add(2, 3) = ${add(2, 3)}\n` +
+            `${greet("Michael")}\n`;
+
+        console.log('Loaded?')
+    </script>
+</body>
+
+</html>
